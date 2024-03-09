@@ -1,0 +1,110 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.calculator-wrapper{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgb(48, 101, 200);
+    height: 400px;
+    width: 250px;
+    margin-top: 3%;
+    margin-left: 25%;
+}
+input{
+    height: 97%;
+    width: 97%;
+    text-align: end;
+    font-size: larger;
+    font-weight: bolder ;
+    border: 2px solid rgb(92, 133, 246);
+}
+
+
+
+.display-wrapper{
+    height: 25%;
+    margin: 5px;
+}
+
+
+.buttons-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    margin: 5px;
+}
+.number-buttons{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 65%;
+    padding: 5px;
+    justify-content: space-around;
+    align-items: center;
+}
+.number-buttons .numbers{
+    width: 33%;
+    height: 25%;
+}
+.numbers > button{
+    height: 100%;
+    width: 100%;
+}
+
+.operator-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    flex-wrap: wrap;
+    height: 60%;
+    padding: 5px;
+}
+
+.operations-buttons{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 5px;
+}
+
+.operations-buttons .operator{
+    width: 50%;
+    height: 50%;
+}
+
+.operator > button{
+    height: 75%;
+    width: 95%;
+}
+
+.evaluation-button{
+    display: flex;
+    flex-direction: column;    
+}
+
+button{
+    height: 100%;
+    width: 100%;
+}
+
+button:hover{
+    background-color: black;
+    color: white;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+button:active{
+    background-color: grey;
+    transition-duration: 5ms;
+}
