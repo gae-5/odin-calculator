@@ -1,3 +1,6 @@
+const displayArea = document.querySelector('#display');
+const numberButtons = document.querySelectorAll('.numbers');
+const operatorButtons = document.querySelectorAll('.operator');
 let firstOperand = 0;
 let secondOperand = 0;
 let operator = '';
@@ -40,3 +43,19 @@ function operate(firstOperand, secondOperand, operator){
     }
     return result;
 }
+
+
+let inputValue="";
+function displayText(inputs){
+    inputValue += inputs.innerText;
+    displayArea.value= inputValue;
+
+}
+
+numberButtons.forEach((btn)=>{
+    btn.addEventListener('click',()=>displayText(btn)
+)})
+
+operatorButtons.forEach((btn)=>{
+    btn.addEventListener('click',()=>displayText(btn))
+})
