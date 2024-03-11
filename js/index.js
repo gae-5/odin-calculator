@@ -1,6 +1,8 @@
 const displayArea = document.querySelector('#display');
 const numberButtons = document.querySelectorAll('.numbers');
 const operatorButtons = document.querySelectorAll('.operator');
+const clearButton = document.querySelector('.clear-button');
+const calculationButton = document.querySelector('.evaluation-button');
 let firstOperand = 0;
 let secondOperand = 0;
 let operator = '';
@@ -22,6 +24,9 @@ function multiply(firstOperand, secondOperand){
 }
 
 function divide(firstOperand, secondOperand){
+    if(secondOperand === '0') {
+        return "oh oh, cant devide by zero man!!"}
+
     return Number(firstOperand)/Number(secondOperand)
 }
 
@@ -46,6 +51,7 @@ function operate(firstOperand, secondOperand, operator){
 
 
 let inputValue="";
+
 function displayText(inputs){
     inputValue += inputs.innerText;
     displayArea.value= inputValue;
@@ -58,4 +64,45 @@ numberButtons.forEach((btn)=>{
 
 operatorButtons.forEach((btn)=>{
     btn.addEventListener('click',()=>displayText(btn))
+})
+
+
+clearButton.addEventListener('click',()=>{
+    inputValue = ""
+    displayArea.value=inputValue});
+
+
+function splitter(op){
+    let initialValue = displayArea.value;
+    let splitVal = initialValue.split(op);
+    let firstOperand = splitVal.at(0);
+    let secondOperand= splitVal.at(-1);
+    let operator = op
+    let calculation = operate(firstOperand,secondOperand,operator);
+    return calculation;
+}
+
+function calculation(){
+    let initialValue = displayArea.value;
+    let firstOperand=0;
+    let secondOperand=0;
+    let operationValue=0;
+
+    for (const sign in initialValue) {
+        if (initialValue[sign] === '+') {
+            return operationValue = splitter('+');            
+        } else if (initialValue[sign] === '-') {
+            return operationValue = spliter('-');            
+        } else if (initialValue[sign] === '*') {
+            return operationValue = splitter('*');            
+        } else if (initialValue[sign] === '/') {
+            return operationValue = splitter('/');            
+        }
+    }
+
+}
+
+calculationButton.addEventListener('click',()=>{
+    let displayValue = calculation();
+    displayArea.value = displayValue;
 })
