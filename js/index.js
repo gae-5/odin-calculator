@@ -25,11 +25,10 @@ function multiply(firstOperand, secondOperand){
 
 function divide(firstOperand, secondOperand){
     if(secondOperand === '0') {
-        return "oh oh, cant devide by zero man!!"}
-
+        return "oh oh, can't devide by zero man!!";
+    }
     return Number(firstOperand)/Number(secondOperand)
 }
-
 
 function operate(firstOperand, secondOperand, operator){
     let result = 0;
@@ -55,51 +54,46 @@ let inputValue="";
 function displayText(inputs){
     inputValue += inputs.innerText;
     displayArea.value= inputValue;
-
 }
 
 numberButtons.forEach((btn)=>{
     btn.addEventListener('click',()=>displayText(btn)
-)})
+)});
 
 operatorButtons.forEach((btn)=>{
     btn.addEventListener('click',()=>displayText(btn))
-})
-
+});
 
 clearButton.addEventListener('click',()=>{
     inputValue = ""
-    displayArea.value=inputValue});
-
+    displayArea.value=inputValue}
+);
 
 function splitter(op){
+    let operator = op;
     let initialValue = displayArea.value;
-    let splitVal = initialValue.split(op);
+    let splitVal = initialValue.split(operator);
     let firstOperand = splitVal.at(0);
     let secondOperand= splitVal.at(-1);
-    let operator = op
     let calculation = operate(firstOperand,secondOperand,operator);
     return calculation;
 }
 
 function calculation(){
     let initialValue = displayArea.value;
-    let firstOperand=0;
-    let secondOperand=0;
-    let operationValue=0;
+    let calculationValue=0;
 
     for (const sign in initialValue) {
         if (initialValue[sign] === '+') {
-            return operationValue = splitter('+');            
+            return calculationValue = splitter('+');            
         } else if (initialValue[sign] === '-') {
-            return operationValue = spliter('-');            
+            return calculationValue = splitter('-');            
         } else if (initialValue[sign] === '*') {
-            return operationValue = splitter('*');            
+            return calculationValue = splitter('*');            
         } else if (initialValue[sign] === '/') {
-            return operationValue = splitter('/');            
+            return calculationValue = splitter('/');            
         }
     }
-
 }
 
 calculationButton.addEventListener('click',()=>{
